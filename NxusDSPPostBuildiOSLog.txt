@@ -1,0 +1,4 @@
+Xcode sdk path: /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk
+Unity3d Xcode project path: /Users/tomislavtusek/Desktop/test/Unity-iPhone.xcodeproj/project.pbxproj
+framework path: /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/
+added SafariServices framework

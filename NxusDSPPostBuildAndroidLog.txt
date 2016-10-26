@@ -1,0 +1,5 @@
+Android plugin path: /Users/tomislavtusek/Documents/workspace_unity/DSPUnity/Assets/Plugins/Android/
+Android nxusDSP path: /Users/tomislavtusek/Documents/workspace_unity/DSPUnity/Assets/NxusDSP/Android/
+Does manifest have nxusDSP install referrer receiver?: True
+Does manifest have INTERNET permission?: True
+Does manifest have ACCESS_NETWORK_STATE permission?: True
