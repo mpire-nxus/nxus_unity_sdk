@@ -59,6 +59,10 @@ def edit_unity_xcode_project(Log, unity_xcode_project_path, framework_path):
     # unity_XcodeProject.add_file_if_doesnt_exist(framework_path + "SafariServices.framework", tree="SDKROOT", create_build_files=True,weak=True)
     # Log("added SafariServices framework")
 
+    # add Security framework to unity if it's not already there
+    unity_XcodeProject.add_file_if_doesnt_exist(framework_path + "Security.framework", tree="SDKROOT", create_build_files=True,weak=True)
+    Log("added Security framework")
+
     # Add -ObjC to "Other Linker Flags" project settings.
     unity_XcodeProject.add_other_ldflags('-ObjC')
 
