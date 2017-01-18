@@ -2,7 +2,7 @@
 TechMpire nxus platform SDK for Unity developers
 
 ## Get Unity SDK
-Download the Unity package file from <a href="http://distribution.nxus.mobi/libs/unity-nxus-sdk-v1_0_8.unitypackage">here</a>
+Download the Unity package file from <a href="http://distribution.nxus.mobi/libs/unity-nxus-sdk-v1_0_9.unitypackage">here</a>
 Open your project in the Unity Editor and navigate to <pre>Assets -> Import Package -> Custom Package</pre> and select the downloaded Unity package file.
 <img src="http://distribution.nxus.mobi/images/unity/image_1.png">
 
