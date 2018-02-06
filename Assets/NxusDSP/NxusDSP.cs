@@ -320,7 +320,7 @@ public class NxusDSP : MonoBehaviour {
 	}
 
 	public void nxusDspTrackEventWithParams (string eventName, string attributes) {
-		AndroidJavaClass trackingParamsClass = new AndroidJavaClass("com.nxus.dsp.tracking.TrackingParams");
+		AndroidJavaObject trackingParamsClass = new AndroidJavaObject("com.nxus.dsp.tracking.TrackingParams");
 
 		string[] attrs = attributes.Split (new string[] {"\n"}, System.StringSplitOptions.None);
 		foreach (string att in attrs) {
@@ -334,7 +334,7 @@ public class NxusDSP : MonoBehaviour {
 	}
 
 	public void nxusDspTrackEventInstall (string attributes) {
-		AndroidJavaClass trackingParamsClass = new AndroidJavaClass("com.nxus.dsp.tracking.TrackingParams");
+		AndroidJavaObject trackingParamsClass = new AndroidJavaObject("com.nxus.dsp.tracking.TrackingParams");
 
 		string[] attrs = attributes.Split (new string[] {"\n"}, System.StringSplitOptions.None);
 		foreach (string att in attrs) {
@@ -348,7 +348,7 @@ public class NxusDSP : MonoBehaviour {
 	}
 
 	public void nxusDspTrackEventOpen (string attributes) {
-		AndroidJavaClass trackingParamsClass = new AndroidJavaClass("com.nxus.dsp.tracking.TrackingParams");
+		AndroidJavaObject trackingParamsClass = new AndroidJavaObject("com.nxus.dsp.tracking.TrackingParams");
 
 		string[] attrs = attributes.Split (new string[] {"\n"}, System.StringSplitOptions.None);
 		foreach (string att in attrs) {
@@ -362,7 +362,7 @@ public class NxusDSP : MonoBehaviour {
 	}
 
 	public void nxusDspTrackEventRegistration (string attributes) {
-		AndroidJavaClass trackingParamsClass = new AndroidJavaClass("com.nxus.dsp.tracking.TrackingParams");
+		AndroidJavaObject trackingParamsClass = new AndroidJavaObject("com.nxus.dsp.tracking.TrackingParams");
 
 		string[] attrs = attributes.Split (new string[] {"\n"}, System.StringSplitOptions.None);
 		foreach (string att in attrs) {
@@ -376,7 +376,7 @@ public class NxusDSP : MonoBehaviour {
 	}
 
 	public void nxusDspTrackEventPurchase (string attributes) {
-		AndroidJavaClass trackingParamsClass = new AndroidJavaClass("com.nxus.dsp.tracking.TrackingParams");
+		AndroidJavaObject trackingParamsClass = new AndroidJavaObject("com.nxus.dsp.tracking.TrackingParams");
 
 		string[] attrs = attributes.Split (new string[] {"\n"}, System.StringSplitOptions.None);
 		foreach (string att in attrs) {
@@ -390,7 +390,7 @@ public class NxusDSP : MonoBehaviour {
 	}
 
 	public void nxusDspTrackEventLevel (string attributes) {
-		AndroidJavaClass trackingParamsClass = new AndroidJavaClass("com.nxus.dsp.tracking.TrackingParams");
+		AndroidJavaObject trackingParamsClass = new AndroidJavaObject("com.nxus.dsp.tracking.TrackingParams");
 
 		string[] attrs = attributes.Split (new string[] {"\n"}, System.StringSplitOptions.None);
 		foreach (string att in attrs) {
@@ -404,7 +404,7 @@ public class NxusDSP : MonoBehaviour {
 	}
 
 	public void nxusDspTrackEventTutorial (string attributes) {
-		AndroidJavaClass trackingParamsClass = new AndroidJavaClass("com.nxus.dsp.tracking.TrackingParams");
+		AndroidJavaObject trackingParamsClass = new AndroidJavaObject("com.nxus.dsp.tracking.TrackingParams");
 
 		string[] attrs = attributes.Split (new string[] {"\n"}, System.StringSplitOptions.None);
 		foreach (string att in attrs) {
@@ -418,7 +418,7 @@ public class NxusDSP : MonoBehaviour {
 	}
 
 	public void nxusDspTrackEventAddToCart (string attributes) {
-		AndroidJavaClass trackingParamsClass = new AndroidJavaClass("com.nxus.dsp.tracking.TrackingParams");
+		AndroidJavaObject trackingParamsClass = new AndroidJavaObject("com.nxus.dsp.tracking.TrackingParams");
 
 		string[] attrs = attributes.Split (new string[] {"\n"}, System.StringSplitOptions.None);
 		foreach (string att in attrs) {
@@ -432,7 +432,7 @@ public class NxusDSP : MonoBehaviour {
 	}
 
 	public void nxusDspTrackEventCheckout (string attributes) {
-		AndroidJavaClass trackingParamsClass = new AndroidJavaClass("com.nxus.dsp.tracking.TrackingParams");
+		AndroidJavaObject trackingParamsClass = new AndroidJavaObject("com.nxus.dsp.tracking.TrackingParams");
 
 		string[] attrs = attributes.Split (new string[] {"\n"}, System.StringSplitOptions.None);
 		foreach (string att in attrs) {
@@ -446,7 +446,7 @@ public class NxusDSP : MonoBehaviour {
 	}
 
 	public void nxusDspTrackEventInvite (string attributes) {
-		AndroidJavaClass trackingParamsClass = new AndroidJavaClass("com.nxus.dsp.tracking.TrackingParams");
+		AndroidJavaObject trackingParamsClass = new AndroidJavaObject("com.nxus.dsp.tracking.TrackingParams");
 
 		string[] attrs = attributes.Split (new string[] {"\n"}, System.StringSplitOptions.None);
 		foreach (string att in attrs) {
@@ -460,7 +460,7 @@ public class NxusDSP : MonoBehaviour {
 	}
 
 	public void nxusDspTrackEventAchievement (string attributes) {
-		AndroidJavaClass trackingParamsClass = new AndroidJavaClass("com.nxus.dsp.tracking.TrackingParams");
+		AndroidJavaObject trackingParamsClass = new AndroidJavaObject("com.nxus.dsp.tracking.TrackingParams");
 
 		string[] attrs = attributes.Split (new string[] {"\n"}, System.StringSplitOptions.None);
 		foreach (string att in attrs) {
