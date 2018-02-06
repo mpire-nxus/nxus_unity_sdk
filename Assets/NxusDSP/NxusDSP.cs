@@ -320,157 +320,80 @@ public class NxusDSP : MonoBehaviour {
 	}
 
 	public void nxusDspTrackEventWithParams (string eventName, string attributes) {
-		AndroidJavaObject trackingParamsClass = new AndroidJavaObject("com.nxus.dsp.tracking.TrackingParams");
-
-		string[] attrs = attributes.Split (new string[] {"\n"}, System.StringSplitOptions.None);
-		foreach (string att in attrs) {
-			string[] attDetails = att.Split (new string[] {"="}, System.StringSplitOptions.None);
-			trackingParamsClass.Call ("put", attDetails[0], attDetails[1]);
-			Debug.Log ("NxusDSP Android Tracking Param: key=" + attDetails[0] + "; value=" + attDetails[1]);
-		}
-
+		AndroidJavaClass trackingParamsClass = new AndroidJavaClass("com.nxus.dsp.tracking.TrackingParams");
+		AndroidJavaObject trackingParams = trackingParamsClass.CallStatic<AndroidJavaObject>("instantiateFromString", attributes);
 		AndroidJavaClass nxusDspTrackerClass = new AndroidJavaClass("com.nxus.dsp.NxusDSPTracker");
 		nxusDspTrackerClass.CallStatic("trackEvent", eventName, trackingParamsClass);
 	}
 
 	public void nxusDspTrackEventInstall (string attributes) {
-		AndroidJavaObject trackingParamsClass = new AndroidJavaObject("com.nxus.dsp.tracking.TrackingParams");
-
-		string[] attrs = attributes.Split (new string[] {"\n"}, System.StringSplitOptions.None);
-		foreach (string att in attrs) {
-			string[] attDetails = att.Split (new string[] {"="}, System.StringSplitOptions.None);
-			trackingParamsClass.Call ("put", attDetails[0], attDetails[1]);
-			Debug.Log ("NxusDSP Android Tracking Param: key=" + attDetails[0] + "; value=" + attDetails[1]);
-		}
-
+		AndroidJavaClass trackingParamsClass = new AndroidJavaClass("com.nxus.dsp.tracking.TrackingParams");
+		AndroidJavaObject trackingParams = trackingParamsClass.CallStatic<AndroidJavaObject>("instantiateFromString", attributes);
 		AndroidJavaClass nxusDspTrackerClass = new AndroidJavaClass("com.nxus.dsp.NxusDSPTracker");
-		nxusDspTrackerClass.CallStatic("trackEventInstall", trackingParamsClass);
+		nxusDspTrackerClass.CallStatic("trackEventInstall", trackingParams);
 	}
 
 	public void nxusDspTrackEventOpen (string attributes) {
-		AndroidJavaObject trackingParamsClass = new AndroidJavaObject("com.nxus.dsp.tracking.TrackingParams");
-
-		string[] attrs = attributes.Split (new string[] {"\n"}, System.StringSplitOptions.None);
-		foreach (string att in attrs) {
-			string[] attDetails = att.Split (new string[] {"="}, System.StringSplitOptions.None);
-			trackingParamsClass.Call ("put", attDetails[0], attDetails[1]);
-			Debug.Log ("NxusDSP Android Tracking Param: key=" + attDetails[0] + "; value=" + attDetails[1]);
-		}
-
+		AndroidJavaClass trackingParamsClass = new AndroidJavaClass("com.nxus.dsp.tracking.TrackingParams");
+		AndroidJavaObject trackingParams = trackingParamsClass.CallStatic<AndroidJavaObject>("instantiateFromString", attributes);
 		AndroidJavaClass nxusDspTrackerClass = new AndroidJavaClass("com.nxus.dsp.NxusDSPTracker");
-		nxusDspTrackerClass.CallStatic("trackEventOpen", trackingParamsClass);
+		nxusDspTrackerClass.CallStatic("trackEventOpen", trackingParams);
 	}
 
 	public void nxusDspTrackEventRegistration (string attributes) {
-		AndroidJavaObject trackingParamsClass = new AndroidJavaObject("com.nxus.dsp.tracking.TrackingParams");
-
-		string[] attrs = attributes.Split (new string[] {"\n"}, System.StringSplitOptions.None);
-		foreach (string att in attrs) {
-			string[] attDetails = att.Split (new string[] {"="}, System.StringSplitOptions.None);
-			trackingParamsClass.Call ("put", attDetails[0], attDetails[1]);
-			Debug.Log ("NxusDSP Android Tracking Param: key=" + attDetails[0] + "; value=" + attDetails[1]);
-		}
-
+		AndroidJavaClass trackingParamsClass = new AndroidJavaClass("com.nxus.dsp.tracking.TrackingParams");
+		AndroidJavaObject trackingParams = trackingParamsClass.CallStatic<AndroidJavaObject>("instantiateFromString", attributes);
 		AndroidJavaClass nxusDspTrackerClass = new AndroidJavaClass("com.nxus.dsp.NxusDSPTracker");
-		nxusDspTrackerClass.CallStatic("trackEventRegistration", trackingParamsClass);
+		nxusDspTrackerClass.CallStatic("trackEventRegistration", trackingParams);
 	}
 
 	public void nxusDspTrackEventPurchase (string attributes) {
-		AndroidJavaObject trackingParamsClass = new AndroidJavaObject("com.nxus.dsp.tracking.TrackingParams");
-
-		string[] attrs = attributes.Split (new string[] {"\n"}, System.StringSplitOptions.None);
-		foreach (string att in attrs) {
-			string[] attDetails = att.Split (new string[] {"="}, System.StringSplitOptions.None);
-			trackingParamsClass.Call ("put", attDetails[0], attDetails[1]);
-			Debug.Log ("NxusDSP Android Tracking Param: key=" + attDetails[0] + "; value=" + attDetails[1]);
-		}
-
+		AndroidJavaClass trackingParamsClass = new AndroidJavaClass("com.nxus.dsp.tracking.TrackingParams");
+		AndroidJavaObject trackingParams = trackingParamsClass.CallStatic<AndroidJavaObject>("instantiateFromString", attributes);
 		AndroidJavaClass nxusDspTrackerClass = new AndroidJavaClass("com.nxus.dsp.NxusDSPTracker");
-		nxusDspTrackerClass.CallStatic("trackEventPurchase", trackingParamsClass);
+		nxusDspTrackerClass.CallStatic("trackEventPurchase", trackingParams);
 	}
 
 	public void nxusDspTrackEventLevel (string attributes) {
-		AndroidJavaObject trackingParamsClass = new AndroidJavaObject("com.nxus.dsp.tracking.TrackingParams");
-
-		string[] attrs = attributes.Split (new string[] {"\n"}, System.StringSplitOptions.None);
-		foreach (string att in attrs) {
-			string[] attDetails = att.Split (new string[] {"="}, System.StringSplitOptions.None);
-			trackingParamsClass.Call ("put", attDetails[0], attDetails[1]);
-			Debug.Log ("NxusDSP Android Tracking Param: key=" + attDetails[0] + "; value=" + attDetails[1]);
-		}
-
+		AndroidJavaClass trackingParamsClass = new AndroidJavaClass("com.nxus.dsp.tracking.TrackingParams");
+		AndroidJavaObject trackingParams = trackingParamsClass.CallStatic<AndroidJavaObject>("instantiateFromString", attributes);
 		AndroidJavaClass nxusDspTrackerClass = new AndroidJavaClass("com.nxus.dsp.NxusDSPTracker");
-		nxusDspTrackerClass.CallStatic("trackEventLevel", trackingParamsClass);
+		nxusDspTrackerClass.CallStatic("trackEventLevel", trackingParams);
 	}
 
 	public void nxusDspTrackEventTutorial (string attributes) {
-		AndroidJavaObject trackingParamsClass = new AndroidJavaObject("com.nxus.dsp.tracking.TrackingParams");
-
-		string[] attrs = attributes.Split (new string[] {"\n"}, System.StringSplitOptions.None);
-		foreach (string att in attrs) {
-			string[] attDetails = att.Split (new string[] {"="}, System.StringSplitOptions.None);
-			trackingParamsClass.Call ("put", attDetails[0], attDetails[1]);
-			Debug.Log ("NxusDSP Android Tracking Param: key=" + attDetails[0] + "; value=" + attDetails[1]);
-		}
-
+		AndroidJavaClass trackingParamsClass = new AndroidJavaClass("com.nxus.dsp.tracking.TrackingParams");
+		AndroidJavaObject trackingParams = trackingParamsClass.CallStatic<AndroidJavaObject>("instantiateFromString", attributes);
 		AndroidJavaClass nxusDspTrackerClass = new AndroidJavaClass("com.nxus.dsp.NxusDSPTracker");
-		nxusDspTrackerClass.CallStatic("trackEventTutorial", trackingParamsClass);
+		nxusDspTrackerClass.CallStatic("trackEventTutorial", trackingParams);
 	}
 
 	public void nxusDspTrackEventAddToCart (string attributes) {
-		AndroidJavaObject trackingParamsClass = new AndroidJavaObject("com.nxus.dsp.tracking.TrackingParams");
-
-		string[] attrs = attributes.Split (new string[] {"\n"}, System.StringSplitOptions.None);
-		foreach (string att in attrs) {
-			string[] attDetails = att.Split (new string[] {"="}, System.StringSplitOptions.None);
-			trackingParamsClass.Call ("put", attDetails[0], attDetails[1]);
-			Debug.Log ("NxusDSP Android Tracking Param: key=" + attDetails[0] + "; value=" + attDetails[1]);
-		}
-
+		AndroidJavaClass trackingParamsClass = new AndroidJavaClass("com.nxus.dsp.tracking.TrackingParams");
+		AndroidJavaObject trackingParams = trackingParamsClass.CallStatic<AndroidJavaObject>("instantiateFromString", attributes);
 		AndroidJavaClass nxusDspTrackerClass = new AndroidJavaClass("com.nxus.dsp.NxusDSPTracker");
-		nxusDspTrackerClass.CallStatic("trackEventAddToCart", trackingParamsClass);
+		nxusDspTrackerClass.CallStatic("trackEventAddToCart", trackingParams);
 	}
 
 	public void nxusDspTrackEventCheckout (string attributes) {
-		AndroidJavaObject trackingParamsClass = new AndroidJavaObject("com.nxus.dsp.tracking.TrackingParams");
-
-		string[] attrs = attributes.Split (new string[] {"\n"}, System.StringSplitOptions.None);
-		foreach (string att in attrs) {
-			string[] attDetails = att.Split (new string[] {"="}, System.StringSplitOptions.None);
-			trackingParamsClass.Call ("put", attDetails[0], attDetails[1]);
-			Debug.Log ("NxusDSP Android Tracking Param: key=" + attDetails[0] + "; value=" + attDetails[1]);
-		}
-
+		AndroidJavaClass trackingParamsClass = new AndroidJavaClass("com.nxus.dsp.tracking.TrackingParams");
+		AndroidJavaObject trackingParams = trackingParamsClass.CallStatic<AndroidJavaObject>("instantiateFromString", attributes);
 		AndroidJavaClass nxusDspTrackerClass = new AndroidJavaClass("com.nxus.dsp.NxusDSPTracker");
-		nxusDspTrackerClass.CallStatic("trackEventCheckout", trackingParamsClass);
+		nxusDspTrackerClass.CallStatic("trackEventCheckout", trackingParams);
 	}
 
 	public void nxusDspTrackEventInvite (string attributes) {
-		AndroidJavaObject trackingParamsClass = new AndroidJavaObject("com.nxus.dsp.tracking.TrackingParams");
-
-		string[] attrs = attributes.Split (new string[] {"\n"}, System.StringSplitOptions.None);
-		foreach (string att in attrs) {
-			string[] attDetails = att.Split (new string[] {"="}, System.StringSplitOptions.None);
-			trackingParamsClass.Call ("put", attDetails[0], attDetails[1]);
-			Debug.Log ("NxusDSP Android Tracking Param: key=" + attDetails[0] + "; value=" + attDetails[1]);
-		}
-
+		AndroidJavaClass trackingParamsClass = new AndroidJavaClass("com.nxus.dsp.tracking.TrackingParams");
+		AndroidJavaObject trackingParams = trackingParamsClass.CallStatic<AndroidJavaObject>("instantiateFromString", attributes);
 		AndroidJavaClass nxusDspTrackerClass = new AndroidJavaClass("com.nxus.dsp.NxusDSPTracker");
-		nxusDspTrackerClass.CallStatic("trackEventInvite", trackingParamsClass);
+		nxusDspTrackerClass.CallStatic("trackEventInvite", trackingParams);
 	}
 
 	public void nxusDspTrackEventAchievement (string attributes) {
-		AndroidJavaObject trackingParamsClass = new AndroidJavaObject("com.nxus.dsp.tracking.TrackingParams");
-
-		string[] attrs = attributes.Split (new string[] {"\n"}, System.StringSplitOptions.None);
-		foreach (string att in attrs) {
-			string[] attDetails = att.Split (new string[] {"="}, System.StringSplitOptions.None);
-			trackingParamsClass.Call ("put", attDetails[0], attDetails[1]);
-			Debug.Log ("NxusDSP Android Tracking Param: key=" + attDetails[0] + "; value=" + attDetails[1]);
-		}
-
+		AndroidJavaClass trackingParamsClass = new AndroidJavaClass("com.nxus.dsp.tracking.TrackingParams");
+		AndroidJavaObject trackingParams = trackingParamsClass.CallStatic<AndroidJavaObject>("instantiateFromString", attributes);
 		AndroidJavaClass nxusDspTrackerClass = new AndroidJavaClass("com.nxus.dsp.NxusDSPTracker");
-		nxusDspTrackerClass.CallStatic("trackEventAchievement", trackingParamsClass);
+		nxusDspTrackerClass.CallStatic("trackEventAchievement", trackingParams);
 	}
     #endregion
 	#endif
