@@ -28,154 +28,118 @@ public class NxusDSP : MonoBehaviour {
 	}
 
 	public static void trackEvent(string eventName) {
-		Debug.Log ("NxusDSP trackEvent - check instance");
-		if (NxusDSP.instance != null) {
-			Debug.Log ("NxusDSP trackEvent - instance existing, tracking event");
-			NxusDSP.instance.nxusDspTrackEvent(eventName);
-		}
+		Debug.Log ("NxusDSP trackEvent - instance existing, tracking event");
+		NxusDSP.instance.nxusDspTrackEvent(eventName);
 	}
 
 	public static void trackEventWithParams(string eventName, Dictionary<string, string> attributes) {
-		Debug.Log ("NxusDSP trackEventWithParams - check instance");
-		if (NxusDSP.instance != null) {
-			Debug.Log ("NxusDSP trackEventWithParams - instance existing, tracking event");
-			string attributesString = "";
-			foreach(KeyValuePair<string, string> kvp in attributes) {
-				attributesString += kvp.Key + "=" + kvp.Value + "\n";
-			}
-			Debug.Log ("NxusDSP trackEventWithParams attributes: " + attributesString);
-			NxusDSP.instance.nxusDspTrackEventWithParams (eventName, attributesString);
+		Debug.Log ("NxusDSP trackEventWithParams - instance existing, tracking event");
+		string attributesString = "";
+		foreach(KeyValuePair<string, string> kvp in attributes) {
+			attributesString += kvp.Key + "=" + kvp.Value + "\n";
 		}
+		Debug.Log ("NxusDSP trackEventWithParams attributes: " + attributesString);
+		NxusDSP.instance.nxusDspTrackEventWithParams (eventName, attributesString);
 	}
 
 	public static void trackEventInstall(Dictionary<string, string> attributes) {
-		Debug.Log ("NxusDSP trackEventInstall - check instance");
-		if (NxusDSP.instance != null) {
-			Debug.Log ("NxusDSP trackEventInstall - instance existing, tracking event");
-			string attributesString = "";
-			foreach(KeyValuePair<string, string> kvp in attributes) {
-				attributesString += kvp.Key + "=" + kvp.Value + "\n";
-			}
-			Debug.Log ("NxusDSP trackEventInstall attributes: " + attributesString);
-			NxusDSP.instance.nxusDspTrackEventInstall (attributesString);
+		Debug.Log ("NxusDSP trackEventInstall - instance existing, tracking event");
+		string attributesString = "";
+		foreach(KeyValuePair<string, string> kvp in attributes) {
+			attributesString += kvp.Key + "=" + kvp.Value + "\n";
 		}
+		Debug.Log ("NxusDSP trackEventInstall attributes: " + attributesString);
+		NxusDSP.instance.nxusDspTrackEventInstall (attributesString);
 	}
 
 	public static void trackEventOpen(Dictionary<string, string> attributes) {
-		Debug.Log ("NxusDSP trackEventOpen - check instance");
-		if (NxusDSP.instance != null) {
-			Debug.Log ("NxusDSP trackEventOpen - instance existing, tracking event");
-			string attributesString = "";
-			foreach(KeyValuePair<string, string> kvp in attributes) {
-				attributesString += kvp.Key + "=" + kvp.Value + "\n";
-			}
-			Debug.Log ("NxusDSP trackEventOpen attributes: " + attributesString);
-			NxusDSP.instance.nxusDspTrackEventOpen (attributesString);
+		Debug.Log ("NxusDSP trackEventOpen - instance existing, tracking event");
+		string attributesString = "";
+		foreach(KeyValuePair<string, string> kvp in attributes) {
+			attributesString += kvp.Key + "=" + kvp.Value + "\n";
 		}
+		Debug.Log ("NxusDSP trackEventOpen attributes: " + attributesString);
+		NxusDSP.instance.nxusDspTrackEventOpen (attributesString);
 	}
 
 	public static void trackEventRegistration(Dictionary<string, string> attributes) {
-		Debug.Log ("NxusDSP trackEventRegistration - check instance");
-		if (NxusDSP.instance != null) {
-			Debug.Log ("NxusDSP trackEventRegistration - instance existing, tracking event");
-			string attributesString = "";
-			foreach(KeyValuePair<string, string> kvp in attributes) {
-				attributesString += kvp.Key + "=" + kvp.Value + "\n";
-			}
-			Debug.Log ("NxusDSP trackEventRegistration attributes: " + attributesString);
-			NxusDSP.instance.nxusDspTrackEventRegistration (attributesString);
+		Debug.Log ("NxusDSP trackEventRegistration - instance existing, tracking event");
+		string attributesString = "";
+		foreach(KeyValuePair<string, string> kvp in attributes) {
+			attributesString += kvp.Key + "=" + kvp.Value + "\n";
 		}
+		Debug.Log ("NxusDSP trackEventRegistration attributes: " + attributesString);
+		NxusDSP.instance.nxusDspTrackEventRegistration (attributesString);
 	}
 
 	public static void trackEventPurchase(Dictionary<string, string> attributes) {
-		Debug.Log ("NxusDSP trackEventPurchase - check instance");
-		if (NxusDSP.instance != null) {
-			Debug.Log ("NxusDSP trackEventPurchase - instance existing, tracking event");
-			string attributesString = "";
-			foreach(KeyValuePair<string, string> kvp in attributes) {
-				attributesString += kvp.Key + "=" + kvp.Value + "\n";
-			}
-			Debug.Log ("NxusDSP trackEventPurchase attributes: " + attributesString);
-			NxusDSP.instance.nxusDspTrackEventPurchase (attributesString);
+		Debug.Log ("NxusDSP trackEventPurchase - instance existing, tracking event");
+		string attributesString = "";
+		foreach(KeyValuePair<string, string> kvp in attributes) {
+			attributesString += kvp.Key + "=" + kvp.Value + "\n";
 		}
+		Debug.Log ("NxusDSP trackEventPurchase attributes: " + attributesString);
+		NxusDSP.instance.nxusDspTrackEventPurchase (attributesString);
 	}
 
 	public static void trackEventLevel(Dictionary<string, string> attributes) {
-		Debug.Log ("NxusDSP trackEventLevel - check instance");
-		if (NxusDSP.instance != null) {
-			Debug.Log ("NxusDSP trackEventLevel - instance existing, tracking event");
-			string attributesString = "";
-			foreach(KeyValuePair<string, string> kvp in attributes) {
-				attributesString += kvp.Key + "=" + kvp.Value + "\n";
-			}
-			Debug.Log ("NxusDSP trackEventLevel attributes: " + attributesString);
-			NxusDSP.instance.nxusDspTrackEventLevel (attributesString);
+		Debug.Log ("NxusDSP trackEventLevel - instance existing, tracking event");
+		string attributesString = "";
+		foreach(KeyValuePair<string, string> kvp in attributes) {
+			attributesString += kvp.Key + "=" + kvp.Value + "\n";
 		}
+		Debug.Log ("NxusDSP trackEventLevel attributes: " + attributesString);
+		NxusDSP.instance.nxusDspTrackEventLevel (attributesString);
 	}
 
 	public static void trackEventTutorial(Dictionary<string, string> attributes) {
-		Debug.Log ("NxusDSP trackEventTutorial - check instance");
-		if (NxusDSP.instance != null) {
-			Debug.Log ("NxusDSP trackEventTutorial - instance existing, tracking event");
-			string attributesString = "";
-			foreach(KeyValuePair<string, string> kvp in attributes) {
-				attributesString += kvp.Key + "=" + kvp.Value + "\n";
-			}
-			Debug.Log ("NxusDSP trackEventTutorial attributes: " + attributesString);
-			NxusDSP.instance.nxusDspTrackEventTutorial (attributesString);
+		Debug.Log ("NxusDSP trackEventTutorial - instance existing, tracking event");
+		string attributesString = "";
+		foreach(KeyValuePair<string, string> kvp in attributes) {
+			attributesString += kvp.Key + "=" + kvp.Value + "\n";
 		}
+		Debug.Log ("NxusDSP trackEventTutorial attributes: " + attributesString);
+		NxusDSP.instance.nxusDspTrackEventTutorial (attributesString);
 	}
 
 	public static void trackEventAddToCart(Dictionary<string, string> attributes) {
-		Debug.Log ("NxusDSP trackEventAddToCart - check instance");
-		if (NxusDSP.instance != null) {
-			Debug.Log ("NxusDSP trackEventAddToCart - instance existing, tracking event");
-			string attributesString = "";
-			foreach(KeyValuePair<string, string> kvp in attributes) {
-				attributesString += kvp.Key + "=" + kvp.Value + "\n";
-			}
-			Debug.Log ("NxusDSP trackEventAddToCart attributes: " + attributesString);
-			NxusDSP.instance.nxusDspTrackEventAddToCart (attributesString);
+		Debug.Log ("NxusDSP trackEventAddToCart - instance existing, tracking event");
+		string attributesString = "";
+		foreach(KeyValuePair<string, string> kvp in attributes) {
+			attributesString += kvp.Key + "=" + kvp.Value + "\n";
 		}
+		Debug.Log ("NxusDSP trackEventAddToCart attributes: " + attributesString);
+		NxusDSP.instance.nxusDspTrackEventAddToCart (attributesString);
 	}
 
 	public static void trackEventCheckout(Dictionary<string, string> attributes) {
-		Debug.Log ("NxusDSP trackEventCheckout - check instance");
-		if (NxusDSP.instance != null) {
-			Debug.Log ("NxusDSP trackEventCheckout - instance existing, tracking event");
-			string attributesString = "";
-			foreach(KeyValuePair<string, string> kvp in attributes) {
-				attributesString += kvp.Key + "=" + kvp.Value + "\n";
-			}
-			Debug.Log ("NxusDSP trackEventCheckout attributes: " + attributesString);
-			NxusDSP.instance.nxusDspTrackEventCheckout (attributesString);
+		Debug.Log ("NxusDSP trackEventCheckout - instance existing, tracking event");
+		string attributesString = "";
+		foreach(KeyValuePair<string, string> kvp in attributes) {
+			attributesString += kvp.Key + "=" + kvp.Value + "\n";
 		}
+		Debug.Log ("NxusDSP trackEventCheckout attributes: " + attributesString);
+		NxusDSP.instance.nxusDspTrackEventCheckout (attributesString);
 	}
 
 	public static void trackEventInvite(Dictionary<string, string> attributes) {
-		Debug.Log ("NxusDSP trackEventInvite - check instance");
-		if (NxusDSP.instance != null) {
-			Debug.Log ("NxusDSP trackEventInvite - instance existing, tracking event");
-			string attributesString = "";
-			foreach(KeyValuePair<string, string> kvp in attributes) {
-				attributesString += kvp.Key + "=" + kvp.Value + "\n";
-			}
-			Debug.Log ("NxusDSP trackEventInvite attributes: " + attributesString);
-			NxusDSP.instance.nxusDspTrackEventInvite (attributesString);
+		Debug.Log ("NxusDSP trackEventInvite - instance existing, tracking event");
+		string attributesString = "";
+		foreach(KeyValuePair<string, string> kvp in attributes) {
+			attributesString += kvp.Key + "=" + kvp.Value + "\n";
 		}
+		Debug.Log ("NxusDSP trackEventInvite attributes: " + attributesString);
+		NxusDSP.instance.nxusDspTrackEventInvite (attributesString);
 	}
 
 	public static void trackEventAchievement(Dictionary<string, string> attributes) {
-		Debug.Log ("NxusDSP trackEventAchievement - check instance");
-		if (NxusDSP.instance != null) {
-			Debug.Log ("NxusDSP trackEventAchievement - instance existing, tracking event");
-			string attributesString = "";
-			foreach(KeyValuePair<string, string> kvp in attributes) {
-				attributesString += kvp.Key + "=" + kvp.Value + "\n";
-			}
-			Debug.Log ("NxusDSP trackEventAchievement attributes: " + attributesString);
-			NxusDSP.instance.nxusDspTrackEventAchievement (attributesString);
+		Debug.Log ("NxusDSP trackEventAchievement - instance existing, tracking event");
+		string attributesString = "";
+		foreach(KeyValuePair<string, string> kvp in attributes) {
+			attributesString += kvp.Key + "=" + kvp.Value + "\n";
 		}
+		Debug.Log ("NxusDSP trackEventAchievement attributes: " + attributesString);
+		NxusDSP.instance.nxusDspTrackEventAchievement (attributesString);
 	}
 
 	#if UNITY_EDITOR
