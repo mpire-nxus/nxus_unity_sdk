@@ -19,5 +19,15 @@
 -(id)initWithApiKey:(NSString *)apiKey;
 +(void)trackEvent:(NSString *)event;
 +(void)trackEvent:(NSString *)event params:(NSMutableDictionary *)params;
++(void)trackEventInstall:(NSMutableDictionary *)params;
++(void)trackEventOpen:(NSMutableDictionary *)params;
++(void)trackEventRegistration:(NSMutableDictionary *)params;
++(void)trackEventPurchase:(NSMutableDictionary *)params;
++(void)trackEventLevel:(NSMutableDictionary *)params;
++(void)trackEventTutorial:(NSMutableDictionary *)params;
++(void)trackEventAddToCart:(NSMutableDictionary *)params;
++(void)trackEventCheckout:(NSMutableDictionary *)params;
++(void)trackEventInvite:(NSMutableDictionary *)params;
++(void)trackEventAchievement:(NSMutableDictionary *)params;
 
 @end
