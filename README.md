@@ -2,7 +2,7 @@
 TechMpire nxus platform SDK for Unity developers
 
 ## Get Unity SDK
-Download the Unity package file from <a href="http://distribution.nxus.mobi/libs/unity-nxus-sdk-v1_0_19.unitypackage">here</a>
+Download the Unity package file from <a href="http://distribution.nxus.mobi/libs/unity-nxus-sdk-v1_0_20.unitypackage">here</a>
 Open your project in the Unity Editor and navigate to <pre>Assets -> Import Package -> Custom Package</pre> and select the downloaded Unity package file.
 <img src="http://distribution.nxus.mobi/images/unity/image_1.png">
 
@@ -20,4 +20,31 @@ Once initialisation is done, an <b>app_start</b> event is automatically sent. If
 To send a custom event, call the method <b>trackEvent</b> from your code.
 ```
 NxusDSP.trackEvent ("event-name");
+```
+
+If you have any additional parameters you would like to send, pass in an instance of <b>Dictionary</b>:
+```
+Dictionary<string, string> params = new Dictionary<string, string>();
+params.Add ("key", "value");
+NxusDSP.trackEventWithParams ("event-name", params);
+```
+
+## Sending predefined events
+You can send predefined events using the SDK, with following methods:
+```
+NxusDSP.trackEventInstall (params);
+NxusDSP.trackEventOpen (params);
+NxusDSP.trackEventRegistration (params);
+NxusDSP.trackEventPurchase (params);
+NxusDSP.trackEventLevel (params);
+NxusDSP.trackEventTutorial (params);
+NxusDSP.trackEventAddToCart (params);
+NxusDSP.trackEventCheckout (params);
+NxusDSP.trackEventInvite (params);
+NxusDSP.trackEventAchievement (params);
+```
+Every method takes additional parameters using <b>Dictionary</b>:
+```
+Dictionary<string, string> params = new Dictionary<string, string>();
+params.Add ("key", "value");
 ```
