@@ -1,33 +1,29 @@
 //
-//  NxusDSPWrapper.m
-//  
-//
-//  Created by Tomislav Tusek on 12/09/16.
-//
+//  MpireNxusMeasurementWrapper.m
 //
 
-#import "NxusDSP.h"
-#import "NxusDSPWrapper.h"
+#import "MpireNxusMeasurement.h"
+#import "MpireNxusMeasurementWrapper.h"
 
-@implementation NxusDSPWrapper
+@implementation MpireNxusMeasurementWrapper
 
-void nxus_dsp_set_sdk_platform(char *platform) {
-    [NxusDSP setSdkPlatform:[NSString stringWithUTF8String:platform]];
+void mpire_nxus_measurement_set_sdk_platform(char *platform) {
+    [MpireNxusMeasurement setSdkPlatform:[NSString stringWithUTF8String:platform]];
 }
 
-void nxus_dsp_debugging_enabled(bool *enabled) {
-    [NxusDSP debuggingEnabled:enabled];
-}
-    
-void nxus_dsp_initialize_library(char *dsp_api_key) {
-    [NxusDSP initializeLibrary:[NSString stringWithUTF8String:dsp_api_key]];
+void mpire_nxus_measurement_debugging_enabled(bool *enabled) {
+    [MpireNxusMeasurement debuggingEnabled:enabled];
 }
     
-void nxus_dsp_track_event(char *eventName) {
-    [NxusDSP trackEvent:[NSString stringWithUTF8String:eventName]];
+void mpire_nxus_measurement_initialize_library(char *dsp_api_key) {
+    [MpireNxusMeasurement initializeLibrary:[NSString stringWithUTF8String:dsp_api_key]];
+}
+    
+void mpire_nxus_measurement_track_event(char *eventName) {
+    [MpireNxusMeasurement trackEvent:[NSString stringWithUTF8String:eventName]];
 }
 
-void nxus_dsp_track_event_with_params(char *eventName, const char *attributes) {
+void mpire_nxus_measurement_track_event_with_params(char *eventName, const char *attributes) {
     NSString *attris = [NSString stringWithUTF8String:attributes];
     NSArray *attributesArray = [attris componentsSeparatedByString:@"\n"];
     
@@ -41,10 +37,10 @@ void nxus_dsp_track_event_with_params(char *eventName, const char *attributes) {
             [oAttributes setObject:value forKey:key];
         }
     }
-    [NxusDSP trackEvent:[NSString stringWithUTF8String:eventName] params:oAttributes];
+    [MpireNxusMeasurement trackEvent:[NSString stringWithUTF8String:eventName] params:oAttributes];
 }
 
-void nxus_dsp_track_event_install(const char *attributes) {
+void mpire_nxus_measurement_track_event_install(const char *attributes) {
     NSString *attris = [NSString stringWithUTF8String:attributes];
     NSArray *attributesArray = [attris componentsSeparatedByString:@"\n"];
     
@@ -58,10 +54,10 @@ void nxus_dsp_track_event_install(const char *attributes) {
             [oAttributes setObject:value forKey:key];
         }
     }
-    [NxusDSP trackEventInstall:oAttributes];
+    [MpireNxusMeasurement trackEventInstall:oAttributes];
 }
 
-void nxus_dsp_track_event_open(const char *attributes) {
+void mpire_nxus_measurement_track_event_open(const char *attributes) {
     NSString *attris = [NSString stringWithUTF8String:attributes];
     NSArray *attributesArray = [attris componentsSeparatedByString:@"\n"];
     
@@ -75,10 +71,10 @@ void nxus_dsp_track_event_open(const char *attributes) {
             [oAttributes setObject:value forKey:key];
         }
     }
-    [NxusDSP trackEventOpen:oAttributes];
+    [MpireNxusMeasurement trackEventOpen:oAttributes];
 }
 
-void nxus_dsp_track_event_registration(const char *attributes) {
+void mpire_nxus_measurement_track_event_registration(const char *attributes) {
     NSString *attris = [NSString stringWithUTF8String:attributes];
     NSArray *attributesArray = [attris componentsSeparatedByString:@"\n"];
     
@@ -92,10 +88,10 @@ void nxus_dsp_track_event_registration(const char *attributes) {
             [oAttributes setObject:value forKey:key];
         }
     }
-    [NxusDSP trackEventRegistration:oAttributes];
+    [MpireNxusMeasurement trackEventRegistration:oAttributes];
 }
 
-void nxus_dsp_track_event_purchase(const char *attributes) {
+void mpire_nxus_measurement_track_event_purchase(const char *attributes) {
     NSString *attris = [NSString stringWithUTF8String:attributes];
     NSArray *attributesArray = [attris componentsSeparatedByString:@"\n"];
     
@@ -109,10 +105,10 @@ void nxus_dsp_track_event_purchase(const char *attributes) {
             [oAttributes setObject:value forKey:key];
         }
     }
-    [NxusDSP trackEventPurchase:oAttributes];
+    [MpireNxusMeasurement trackEventPurchase:oAttributes];
 }
 
-void nxus_dsp_track_event_level(const char *attributes) {
+void mpire_nxus_measurement_track_event_level(const char *attributes) {
     NSString *attris = [NSString stringWithUTF8String:attributes];
     NSArray *attributesArray = [attris componentsSeparatedByString:@"\n"];
     
@@ -126,10 +122,10 @@ void nxus_dsp_track_event_level(const char *attributes) {
             [oAttributes setObject:value forKey:key];
         }
     }
-    [NxusDSP trackEventLevel:oAttributes];
+    [MpireNxusMeasurement trackEventLevel:oAttributes];
 }
 
-void nxus_dsp_track_event_tutorial(const char *attributes) {
+void mpire_nxus_measurement_track_event_tutorial(const char *attributes) {
     NSString *attris = [NSString stringWithUTF8String:attributes];
     NSArray *attributesArray = [attris componentsSeparatedByString:@"\n"];
     
@@ -143,10 +139,10 @@ void nxus_dsp_track_event_tutorial(const char *attributes) {
             [oAttributes setObject:value forKey:key];
         }
     }
-    [NxusDSP trackEventTutorial:oAttributes];
+    [MpireNxusMeasurement trackEventTutorial:oAttributes];
 }
 
-void nxus_dsp_track_event_add_to_cart(const char *attributes) {
+void mpire_nxus_measurement_track_event_add_to_cart(const char *attributes) {
     NSString *attris = [NSString stringWithUTF8String:attributes];
     NSArray *attributesArray = [attris componentsSeparatedByString:@"\n"];
     
@@ -160,10 +156,10 @@ void nxus_dsp_track_event_add_to_cart(const char *attributes) {
             [oAttributes setObject:value forKey:key];
         }
     }
-    [NxusDSP trackEventAddToCart:oAttributes];
+    [MpireNxusMeasurement trackEventAddToCart:oAttributes];
 }
 
-void nxus_dsp_track_event_checkout(const char *attributes) {
+void mpire_nxus_measurement_track_event_checkout(const char *attributes) {
     NSString *attris = [NSString stringWithUTF8String:attributes];
     NSArray *attributesArray = [attris componentsSeparatedByString:@"\n"];
     
@@ -177,10 +173,10 @@ void nxus_dsp_track_event_checkout(const char *attributes) {
             [oAttributes setObject:value forKey:key];
         }
     }
-    [NxusDSP trackEventCheckout:oAttributes];
+    [MpireNxusMeasurement trackEventCheckout:oAttributes];
 }
 
-void nxus_dsp_track_event_invite(const char *attributes) {
+void mpire_nxus_measurement_track_event_invite(const char *attributes) {
     NSString *attris = [NSString stringWithUTF8String:attributes];
     NSArray *attributesArray = [attris componentsSeparatedByString:@"\n"];
     
@@ -194,10 +190,10 @@ void nxus_dsp_track_event_invite(const char *attributes) {
             [oAttributes setObject:value forKey:key];
         }
     }
-    [NxusDSP trackEventInvite:oAttributes];
+    [MpireNxusMeasurement trackEventInvite:oAttributes];
 }
 
-void nxus_dsp_track_event_achievement(const char *attributes) {
+void mpire_nxus_measurement_track_event_achievement(const char *attributes) {
     NSString *attris = [NSString stringWithUTF8String:attributes];
     NSArray *attributesArray = [attris componentsSeparatedByString:@"\n"];
     
@@ -211,7 +207,7 @@ void nxus_dsp_track_event_achievement(const char *attributes) {
             [oAttributes setObject:value forKey:key];
         }
     }
-    [NxusDSP trackEventAchievement:oAttributes];
+    [MpireNxusMeasurement trackEventAchievement:oAttributes];
 }
 
 @end

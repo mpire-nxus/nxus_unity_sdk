@@ -8,14 +8,14 @@ import sys
 from xml.dom.minidom import parse, parseString
 
 def main():
-    parser = argparse.ArgumentParser(description="NxusDSP post build android script")
+    parser = argparse.ArgumentParser(description="MpireNxusMeasurement post build android script")
     parser.add_argument('assets_path', help="path to the assets folder of unity3d")
     
     # Pre build must be set manually.
-    parser.add_argument('--pre-build', action="store_true", help="used to check and change the AndroidManifest.xml to conform to the NxusDSP SDK")
+    parser.add_argument('--pre-build', action="store_true", help="used to check and change the AndroidManifest.xml to conform to the MpireNxusMeasurement")
     exit_code = 0
     
-    with open('NxusDSPPostBuildAndroidLog.txt', 'w') as fileLog:
+    with open('MpireNxusMeasurementPostBuildAndroidLog.txt', 'w') as fileLog:
         # Log function with file injected.
         LogFunc = LogInput(fileLog)
         
@@ -40,7 +40,7 @@ def main():
                     # Warn unity if it was pos-build, if something is missing.
                     if not pre_build:
                         LogFunc("Android manifest used in unity did not " + \
-                                "had all the changes nxusDSP SDK needs. " + \
+                                "had all the changes MpireNxusMeasurement needs. " + \
                                 "Please build again the package.")
                     edited_xml = edit_manifest(LogFunc, mf, check_dic, android_plugin_path)
             
@@ -56,7 +56,7 @@ def main():
                 if not pre_build:
                     LogFunc("Used default Android manifest file from " + \
                             "unity. Please build again the package to " +
-                            "include the changes for nxusDSP SDK")
+                            "include the changes for MpireNxusMeasurement")
                 copy_nxusdsp_manifest(LogFunc, android_plugin_path, nxusdsp_android_path)
                 exit_code = 1
             else:
@@ -75,7 +75,7 @@ def edit_manifest(Log, manifest_file, check_dic, android_plugin_path):
         receiver_string = """<?xml version="1.0" ?>
         <receiver
             xmlns:android="http://schemas.android.com/apk/res/android"
-            android:name="com.nxus.dsp.receivers.InstallReceiver"
+            android:name="com.nxus.measurement.receivers.InstallReceiver"
             android:exported="true" >
             <intent-filter>
                 <action android:name="com.android.vending.INSTALL_REFERRER" />
@@ -88,7 +88,7 @@ def edit_manifest(Log, manifest_file, check_dic, android_plugin_path):
         for app_element in manifest_xml.getElementsByTagName("application"):
             app_element.appendChild(receiver_xml.documentElement)
         
-        Log("Successfully added the nxusDSP install referrer receiver")
+        Log("Successfully added the MpireNxusMeasurement install referrer receiver")
 
     # Add the internet permission to the manifest element
     if not check_dic["has_internet_permission"]:
@@ -114,7 +114,7 @@ def check_manifest(Log, manifest_file):
     manifest_xml = parse(manifest_file)
     # Log(manifest_xml.toxml())
     
-    has_nxusdsp_receiver = has_element_attr(manifest_xml, "receiver", "android:name", "com.nxus.dsp.receivers.InstallReceiver")
+    has_nxusdsp_receiver = has_element_attr(manifest_xml, "receiver", "android:name", "com.nxus.measurement.receivers.InstallReceiver")
     Log("Does manifest have nxusDSP install referrer receiver?: {0}", has_nxusdsp_receiver)
 
     has_internet_permission = has_element_attr(manifest_xml, "uses-permission", "android:name", "android.permission.INTERNET")
@@ -136,7 +136,7 @@ def has_element_attr(xml_dom, tag_name, attr_name, attr_value):
     return False
 
 def copy_nxusdsp_manifest(Log, android_plugin_path, nxusdsp_android_path):
-    nxusdsp_manifest_path = os.path.join(nxusdsp_android_path, "NxusDSPAndroidManifest.xml")
+    nxusdsp_manifest_path = os.path.join(nxusdsp_android_path, "MpireNxusMeasurementAndroidManifest.xml")
     new_manifest_path = os.path.join(android_plugin_path, "AndroidManifest.xml")
 
     if not os.path.exists(android_plugin_path):
@@ -160,10 +160,10 @@ def parse_input(Log, parser):
     assets_path = args.assets_path
 
     android_plugin_path = os.path.join(assets_path, "Plugins/Android/")
-    nxusdsp_android_path = os.path.join(assets_path, "NxusDSP/Android/");
+    nxusdsp_android_path = os.path.join(assets_path, "MpireNxusMeasurement/Android/");
 
     Log("Android plugin path: {0}", android_plugin_path)
-    Log("Android nxusDSP path: {0}", nxusdsp_android_path)
+    Log("Android MpireNxusMeasurement path: {0}", nxusdsp_android_path)
 
     return android_plugin_path, nxusdsp_android_path, args.pre_build
 

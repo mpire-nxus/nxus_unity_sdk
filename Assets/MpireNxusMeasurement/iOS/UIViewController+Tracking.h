@@ -1,6 +1,6 @@
 //
 //  UIViewController+Tracking.h
-//  NxusDSP
+//  MpireNxusMeasurement
 //
 //  Copyright © 2017 TechMpire ltd. All rights reserved.
 //

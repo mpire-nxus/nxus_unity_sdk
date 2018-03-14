@@ -11,7 +11,7 @@ using UnityEditor.Callbacks;
 using System.Runtime.InteropServices;
 using System.Collections.Generic;
 
-public class NxusDSPEditor : MonoBehaviour
+public class MpireNxusMeasurementEditor : MonoBehaviour
 {
     static bool isEnabled = true;
     static string iOSBuildPath = "";
@@ -34,11 +34,11 @@ public class NxusDSPEditor : MonoBehaviour
         if (exitCode != 0)
         {
             var errorMessage = GenerateErrorScriptMessage (target, exitCode);
-            UnityEngine.Debug.LogError ("nxusDsp: " + errorMessage);
+            UnityEngine.Debug.LogError ("MpireNxusMeasurement: " + errorMessage);
         }
     }
 
-    [MenuItem ("Assets/NxusDSP/Fix AndroidManifest.xml")]
+    [MenuItem ("Assets//Fix AndroidManifest.xml")]
     static void FixAndroidManifest ()
     {
 #if UNITY_ANDROID
@@ -46,50 +46,50 @@ public class NxusDSPEditor : MonoBehaviour
 
         if (exitCode == 1)
         {
-            EditorUtility.DisplayDialog ("NxusDSP", 
+            EditorUtility.DisplayDialog ("MpireNxusMeasurement", 
                                          string.Format("AndroidManifest.xml changed or created at {0}/Plugins/Android/ .", Application.dataPath),
                                          "OK");
         }
         else if (exitCode == 0)
         {
-            EditorUtility.DisplayDialog ("NxusDSP", "AndroidManifest.xml did not needed to be changed.", "OK");
+            EditorUtility.DisplayDialog ("MpireNxusMeasurement", "AndroidManifest.xml did not needed to be changed.", "OK");
         }
         else
         {
-            EditorUtility.DisplayDialog ("NxusDSP", GenerateErrorScriptMessage (BuildTarget.Android, exitCode), "OK");
+            EditorUtility.DisplayDialog ("MpireNxusMeasurement", GenerateErrorScriptMessage (BuildTarget.Android, exitCode), "OK");
         }
 #else
-        EditorUtility.DisplayDialog ("NxusDSP", "Option only valid for the Android platform.", "OK");
+        EditorUtility.DisplayDialog ("MpireNxusMeasurement", "Option only valid for the Android platform.", "OK");
 #endif
     }
 
-    [MenuItem ("Assets/NxusDSP/Set iOS build path")]
+    [MenuItem ("Assets/MpireNxusMeasurement/Set iOS build path")]
     static void SetiOSBuildPath ()
     {
 #if UNITY_IOS
-        NxusDSPEditor.iOSBuildPath = EditorUtility.OpenFolderPanel (
+        MpireNxusMeasurementEditor.iOSBuildPath = EditorUtility.OpenFolderPanel (
             title: "iOs build path",
             folder: EditorUserBuildSettings.GetBuildLocation (BuildTarget.iOS),
             defaultName: "");
         
-        if (NxusDSPEditor.iOSBuildPath == "")
+        if (MpireNxusMeasurementEditor.iOSBuildPath == "")
         {
             UnityEngine.Debug.Log ("iOS build path reset to default path");
         }
         else
         {
-            UnityEngine.Debug.Log (string.Format ("iOS build path: {0}", NxusDSPEditor.iOSBuildPath));
+            UnityEngine.Debug.Log (string.Format ("iOS build path: {0}", MpireNxusMeasurementEditor.iOSBuildPath));
         }
 #else
-        EditorUtility.DisplayDialog ("NxusDSP", "Option only valid for the iOS platform.", "OK");
+        EditorUtility.DisplayDialog ("MpireNxusMeasurement", "Option only valid for the iOS platform.", "OK");
 #endif
     }
 
-    [MenuItem ("Assets/NxusDSP/Change post processing status")]
+    [MenuItem ("Assets/MpireNxusMeasurement/Change post processing status")]
     static void ChangePostProcessingStatus ()
     {
         isEnabled = !isEnabled;
-        EditorUtility.DisplayDialog ("NxusDSP", "The post processing for nxusDsp is now " + (isEnabled ? "enabled." : "disabled."), "OK");
+        EditorUtility.DisplayDialog ("MpireNxusMeasurement", "The post processing for MpireNxusMeasurement is now " + (isEnabled ? "enabled." : "disabled."), "OK");
     }
 
     static int RunPostBuildScript (BuildTarget target, bool preBuild, string pathToBuiltProject = "")
@@ -98,7 +98,7 @@ public class NxusDSPEditor : MonoBehaviour
         string arguments = null;
         string pathToScript = null;
 
-        string filePath = System.IO.Path.Combine (Environment.CurrentDirectory, @"Assets/Editor/PostprocessBuildPlayer_NxusDSPPostBuildiOS.py");
+        string filePath = System.IO.Path.Combine (Environment.CurrentDirectory, @"Assets/Editor/PostprocessBuildPlayer_MpireNxusMeasurementPostBuildiOS.py");
 
         // Check if Unity is running on Windows operating system.
         // If yes - fix line endings in python scripts.
@@ -137,7 +137,7 @@ public class NxusDSPEditor : MonoBehaviour
 
         if (target == BuildTarget.Android)
         {
-            pathToScript = "/Editor/PostprocessBuildPlayer_NxusDSPPostBuildAndroid.py";
+            pathToScript = "/Editor/PostprocessBuildPlayer_MpireNxusMeasurementPostBuildAndroid.py";
             arguments = "\"" + Application.dataPath + "\"";
         
             if (preBuild)
@@ -147,15 +147,15 @@ public class NxusDSPEditor : MonoBehaviour
         }
         else if (target == BuildTarget.iOS)
         {
-            pathToScript = "/Editor/PostprocessBuildPlayer_NxusDSPPostBuildiOS.py";
+            pathToScript = "/Editor/PostprocessBuildPlayer_MpireNxusMeasurementPostBuildiOS.py";
         
-            if (NxusDSPEditor.iOSBuildPath == "")
+            if (MpireNxusMeasurementEditor.iOSBuildPath == "")
             {
                 arguments = "\"" + pathToBuiltProject + "\"";
             }
             else
             {
-                arguments = "\"" + NxusDSPEditor.iOSBuildPath + "\"";
+                arguments = "\"" + MpireNxusMeasurementEditor.iOSBuildPath + "\"";
             }
         }
         else
@@ -189,17 +189,17 @@ public class NxusDSPEditor : MonoBehaviour
         if (exitCode != 0)
         {
             var message = "Build script exited with error. " +
-                          "Please check the NxusDSP log file for more information at {0}";
+                          "Please check the MpireNxusMeasurement log file for more information at {0}";
             string projectPath = Application.dataPath.Substring (0, Application.dataPath.Length - 7);
             string logFile = null;
             
             if (target == BuildTarget.Android)
             {
-                logFile = projectPath + "/NxusDSPPostBuildAndroidLog.txt";
+                logFile = projectPath + "/MpireNxusMeasurementPostBuildAndroidLog.txt";
             }
             else if (target == BuildTarget.iOS)
             {
-                logFile = projectPath + "/NxusDSPPostBuildiOSLog.txt";
+                logFile = projectPath + "/MpireNxusMeasurementPostBuildiOSLog.txt";
             }
             else
             {

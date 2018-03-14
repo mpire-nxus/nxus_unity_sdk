@@ -1,6 +1,6 @@
 //
-//  NxusDSP.h
-//  NxusDSP
+//  MpireNxusMeasurement.h
+//  MpireNxusMeasurement
 //
 //  Copyright © 2016. TechMpire ltd. All rights reserved.
 //
@@ -8,10 +8,10 @@
 #import <Foundation/Foundation.h>
 
 /**
- * The main interface to NxusDSP.
- * Use the methods of this class to tell NxusDSP about the usage of your app.
+ * The main interface to MpireNxusMeasurement.
+ * Use the methods of this class to tell MpireNxusMeasurement about the usage of your app.
  */
-@interface NxusDSP : NSObject
+@interface MpireNxusMeasurement : NSObject
 
 +(void) setSdkPlatform:(NSString *)platform;
 + (void) debuggingEnabled:(BOOL)enabled;
