@@ -13,7 +13,7 @@ Edit the parameters of the MpireNxusMeasurement script in the Inspector menu of 
 Replace <b>{Your API key here}</b> with your actual API key.
 If Debugging is enabled, library actions and events will be visible in the log console.
 
-Once initialisation is done, an <b>app_start</b> event is automatically sent. If the application is started for the first time after installation, instead of <b>app_start</b>, <b>first_app_launch</b> is sent.
+Once initialisation is done, an <b>app_start</b> event is automatically sent. If the application is started for the first time after installation, instead of <b>app_start</b>, <b>install</b> event is sent.
 
 ## Sending custom events
 To send a custom event, call the method <b>trackEvent</b> from your code.
