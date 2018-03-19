@@ -1,5 +1,5 @@
 ## Summary
-TechMpire nxus platform SDK for Unity developers
+TechMpire Measurement SDK for Unity developers
 
 ## Get Unity SDK
 Download the Unity package file from <a href="http://distribution.nxus.mobi/libs/MpireNxusMeasurement_v1_1_2.zip">here</a>
