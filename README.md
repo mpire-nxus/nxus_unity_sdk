@@ -2,7 +2,7 @@
 TechMpire Measurement SDK for Unity developers
 
 ## Get Unity SDK
-Download the Unity package file from <a href="http://distribution.nxus.mobi/libs/MpireNxusMeasurement_v1_1_2.zip">here</a>
+Download the Unity package file from <a href="http://distribution.nxus.mobi/libs/MpireNxusMeasurement_v1_1_3.zip">here</a>
 Open your project in the Unity Editor and navigate to <pre>Assets -> Import Package -> Custom Package</pre> and select the downloaded Unity package file.
 <img src="http://distribution.nxus.mobi/images/unity/image_1.png">
 

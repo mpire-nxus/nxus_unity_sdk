@@ -6,23 +6,26 @@ using System.Collections.Generic;
 public class MpireNxusMeasurement : MonoBehaviour {
 
 	public bool debuggingEnabled = true;
-	public string apiKey = "{Your API key here}";
+	public string androidApiKey = "{Your Android API key here}";
+	public string iOSApiKey = "{Your iOS API key here}";
 
 	private static MpireNxusMeasurement instance = null;
 
 	public MpireNxusMeasurement () {}
 
-	private MpireNxusMeasurement (bool debuggingEnabled, string apiKey) {
+	private MpireNxusMeasurement (bool debuggingEnabled, string androidApiKey, string iOSApiKey) {
 		this.debuggingEnabled = debuggingEnabled;
-		this.apiKey = apiKey;
+		this.androidApiKey = androidApiKey;
+		this.iOSApiKey = iOSApiKey;
 	}
 
 	void Awake () {
 		Debug.Log ("MpireNxusMeasurement Awake");
 		Debug.Log ("Awake - debuggingEnabled: " + debuggingEnabled);
-		Debug.Log ("Awake - apiKey: " + apiKey);
+		Debug.Log ("Awake - Android apiKey: " + androidApiKey);
+		Debug.Log ("Awake - iOS apiKey: " + iOSApiKey);
 		if (MpireNxusMeasurement.instance == null) {
-			MpireNxusMeasurement.instance = new MpireNxusMeasurement (debuggingEnabled, apiKey);
+			MpireNxusMeasurement.instance = new MpireNxusMeasurement (debuggingEnabled, androidApiKey, iOSApiKey);
 			MpireNxusMeasurement.instance.mpireNxusMeasurementInitializeLibrary ();
 		}
 	}
@@ -195,10 +198,10 @@ public class MpireNxusMeasurement : MonoBehaviour {
 	public void mpireNxusMeasurementTrackEventAchievement (string attributes) {
 		// Empty
 	}
-    #endregion
+	#endregion
 
 	#elif UNITY_IOS
-    #region External methods
+	#region External methods
 	[DllImport("__Internal")]
 	private static extern void mpire_nxus_measurement_set_sdk_platform (string platform);
 
@@ -243,14 +246,14 @@ public class MpireNxusMeasurement : MonoBehaviour {
 
 	[DllImport("__Internal")]
 	private static extern void mpire_nxus_measurement_track_event_achievement (string attributes);
-    #endregion
+	#endregion
 
-    #region Public methods
+	#region Public methods
 	public void mpireNxusMeasurementInitializeLibrary () {
 		Debug.Log ("NxusDSP instance == null. Initializing...");
 		mpire_nxus_measurement_set_sdk_platform("ios_unity");
 		mpire_nxus_measurement_debugging_enabled(this.debuggingEnabled);
-		mpire_nxus_measurement_initialize_library(this.apiKey);
+		mpire_nxus_measurement_initialize_library(this.iOSApiKey);
 	}
 
 	public void mpireNxusMeasurementTrackEvent (string eventName) {
@@ -300,10 +303,10 @@ public class MpireNxusMeasurement : MonoBehaviour {
 	public void mpireNxusMeasurementTrackEventAchievement (string attributes) {
 		mpire_nxus_measurement_track_event_achievement(attributes);
 	}
-    #endregion
+	#endregion
 
 	#elif UNITY_ANDROID
-    #region Public methods
+	#region Public methods
 	public void mpireNxusMeasurementInitializeLibrary () {
 		Debug.Log ("MpireNxusMeasurement instance == null. Initializing...");
 		AndroidJavaClass nxusDspTrackerClass = new AndroidJavaClass("com.nxus.measurement.MpireNxusMeasurement");
@@ -311,7 +314,7 @@ public class MpireNxusMeasurement : MonoBehaviour {
 		AndroidJavaObject mCurrentActivity = unityPlayer.GetStatic<AndroidJavaObject> ("currentActivity");
 		nxusDspTrackerClass.CallStatic("setSdkPlatform", "android_unity");
 		nxusDspTrackerClass.CallStatic("setDebugginEnabled", this.debuggingEnabled);
-		nxusDspTrackerClass.CallStatic("initializeLibraryWithApiKey", mCurrentActivity, this.apiKey);
+		nxusDspTrackerClass.CallStatic("initializeLibraryWithApiKey", mCurrentActivity, this.androidApiKey);
 	}
 
 	public void mpireNxusMeasurementTrackEvent (string eventName) {
@@ -395,7 +398,7 @@ public class MpireNxusMeasurement : MonoBehaviour {
 		AndroidJavaClass nxusDspTrackerClass = new AndroidJavaClass("com.nxus.measurement.MpireNxusMeasurement");
 		nxusDspTrackerClass.CallStatic("trackEventAchievement", trackingParams);
 	}
-    #endregion
+	#endregion
 	#endif
 
 }
