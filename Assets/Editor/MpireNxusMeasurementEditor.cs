@@ -38,7 +38,7 @@ public class MpireNxusMeasurementEditor : MonoBehaviour
         }
     }
 
-    [MenuItem ("Assets//Fix AndroidManifest.xml")]
+    [MenuItem ("Assets/MpireNxusMeasurement/Fix AndroidManifest.xml")]
     static void FixAndroidManifest ()
     {
 #if UNITY_ANDROID
