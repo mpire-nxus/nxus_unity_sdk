@@ -5,7 +5,8 @@ import re
 from subprocess import Popen, PIPE
 import argparse
 
-from mod_pbxproj import XcodeProject
+from pbxproj import XcodeProject, TreeType
+from pbxproj import FileOptions
 
 def main():
     parser = argparse.ArgumentParser(description="MpireNxusMeasurement post build iOS script")
@@ -53,15 +54,13 @@ def get_paths(Log, parser, xcode_sdk_path):
 
 def edit_unity_xcode_project(Log, unity_xcode_project_path, framework_path):
     # load unity iOS pbxproj project file
-    unity_XcodeProject = XcodeProject.Load(unity_xcode_project_path)
+    unity_XcodeProject = XcodeProject.load(unity_xcode_project_path)
 
-    # add SafariService framework to unity if it's not already there
-    # unity_XcodeProject.add_file_if_doesnt_exist(framework_path + "SafariServices.framework", tree="SDKROOT", create_build_files=True,weak=True)
-    # Log("added SafariServices framework")
+    frameworks = unity_XcodeProject.get_or_create_group('Frameworks')
 
-    # add Security framework to unity if it's not already there
-    unity_XcodeProject.add_file_if_doesnt_exist(framework_path + "Security.framework", tree="SDKROOT", create_build_files=True,weak=True)
-    Log("added Security framework")
+    file_options_security_framework = FileOptions(embed_framework=False, weak=True)
+    unity_XcodeProject.add_file(framework_path + "Security.framework", parent=frameworks, tree='SDKROOT', force=False, file_options=file_options_security_framework)
+    Log("added Security framework") 
 
     # Add -ObjC to "Other Linker Flags" project settings.
     unity_XcodeProject.add_other_ldflags('-ObjC')
